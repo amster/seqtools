@@ -13,12 +13,13 @@ class Seqtools
   # =========================================================================
   
   class Strings
-    # Validates an email address
+    # Validates an email address (stripping extra stuff), returning the email if all is OK.  Otherwise exceptions are thrown.
     #
     # *email*:: (String) Email to check.
+    #
     # *Return*:: (String) Email (forced to String)
     def self.email_valid? (email)
-      email = email.to_s
+      email = email.to_s.strip
 
       raise ArgumentError, 'Email cannot be blank' if email.blank?
       raise ArgumentError, 'Email cannot have spaces' if email.match(/\s/)
@@ -33,6 +34,8 @@ class Seqtools
     #
     # *password*:: (String) Password to hash---spaces will be stripped!
     # *salt*:: (String) Salt string
+    #
+    # *Return*:: (String) Encoded password.
     def self.password_hash (password, salt)
       Digest::SHA1.hexdigest(password.to_s.strip + ':' + salt.to_s.strip)
     end
