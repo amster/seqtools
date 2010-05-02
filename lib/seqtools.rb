@@ -8,6 +8,9 @@ require 'digest/sha1'
 
 class Seqtools
   class Arrays
+    def empty? (an_array)
+      an_array.nil? || an_array.empty?
+    end
   end
   
   # =========================================================================
