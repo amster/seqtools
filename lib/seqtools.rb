@@ -11,6 +11,15 @@ class Seqtools
   end
   
   # =========================================================================
+
+  class HttpRequests
+    # Extract the URI from the HTTP_REFERER of an HTTP request
+    def self.uri_from_referrer (request)
+      request.env['HTTP_REFERER'].sub(/^[^\/]+:\/\/[^\/]+\//, '/')
+    end
+  end
+
+  # =========================================================================
   
   class Strings
     # Validates an email address (stripping extra stuff), returning the email if all is OK.  Otherwise exceptions are thrown.
