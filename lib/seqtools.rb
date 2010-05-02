@@ -40,8 +40,6 @@ class Seqtools
       email
     end
 
-    # .......................................................................
-
     # Does a 1-way SHA1 hash on a stripped password w/ salt
     #
     # *password*:: (String) Password to hash---spaces will be stripped!
