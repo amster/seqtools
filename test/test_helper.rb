@@ -1,3 +1,8 @@
 require 'rubygems'
+gem 'activesupport', '~> 2.3.8'
+gem 'shoulda'
+
 require 'active_support'
-require 'active_support/test_case'
+require 'shoulda'
+
+require 'seqtools'

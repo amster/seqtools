@@ -17,6 +17,7 @@ class Seqtools
       arr.nil? || arr.length < 1 ? nil : arr[rand(arr.length)]
     end
     
+    # Returns an array without blank elements.  Always returns an Array, possibly a zero-length array.
     def self.remove_blanks (arr)
       to_array(arr).select { |i| !i.blank? }
     end
