@@ -12,6 +12,11 @@ class Seqtools
       arr.nil? || to_array(arr).empty?
     end
     
+    # Returns a single random item from an array
+    def self.random_item (arr)
+      arr.nil? || arr.length < 1 ? nil : arr[rand(arr.length)]
+    end
+    
     def self.remove_blanks (arr)
       to_array(arr).select { |i| !i.blank? }
     end
