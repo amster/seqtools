@@ -50,6 +50,13 @@ class Seqtools
   # =========================================================================
   
   class Strings
+    def self.add_url_param (url, param_key, param_val)
+      return '' if url.blank?
+      return url if param_key.blank?
+      
+      "#{url}#{url.include?('?') ? '&' : '?'}#{CGI::escape(param_key)}=#{CGI::escape(param_val)}"
+    end
+
     # Validates an email address (stripping extra stuff), returning the email if all is OK.  Otherwise exceptions are thrown.
     def self.email_valid? (email)
       email = email.to_s.strip
