@@ -52,7 +52,7 @@ class Seqtools
           # Save file or dig deeper?
           full_path = "#{start_dir}/#{ent}"
           files << full_path if File.file?(full_path) && ent.match(pattern)
-          files += get_all_directory_files(full_path, pattern, search_subdirectories) if search_subdirectories && File.directory?(full_path)
+          files += get_all_in_directory(full_path, pattern, search_subdirectories) if search_subdirectories && File.directory?(full_path)
         end
       end
       
