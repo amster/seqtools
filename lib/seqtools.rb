@@ -65,7 +65,7 @@ class Seqtools
   class HttpRequests
     # Extract the URI from the HTTP_REFERER of an HTTP request
     def self.uri_from_referrer (request)
-      request.env['HTTP_REFERER'].sub(/^[^\/]+:\/\/[^\/]+\//, '/')
+      request.env['HTTP_REFERER'].to_s.sub(/^[^\/]+:\/\/[^\/]+\//, '/')
     end
   end
 
