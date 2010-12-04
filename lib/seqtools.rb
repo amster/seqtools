@@ -1,7 +1,7 @@
 # Sequence Mediaworks sharable toolset
 #
 # *Author*::    Amy Lee, amy@seqmedia.com
-# *Copyright*:: Copyright (c) 2010 by Amy Lee
+# *Copyright*:: Copyright (c) 2009 - 2010 by Amy Lee
 # *License*::   Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
 
 require 'digest/sha1'
