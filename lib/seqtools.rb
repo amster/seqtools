@@ -94,6 +94,22 @@ class Seqtools
     def self.empty_if_blank (str)
       str.blank? ? '' : str
     end
+    
+    # Accepts geocodes like "37.754977,-122.446779" or "(37.754977,-122.446779)"
+    def self.is_geocode? (str)
+      # Force to string, remove a few extraneous spaces
+      s = str.
+          to_s.                 # Force to string
+          gsub(/\s+/, ' ').     # Collapse space characters
+          strip.                # Get rid of outside spaces
+          gsub(/\(\s/, '(').    # Get rid of spaces around parens
+          gsub(/\s\)/, ')').
+          gsub(/\s?,\s?/, ',')  # Get rid of spaces around the comma
+          
+      # Now, is it?  Note: the !! just forces the result to true/false
+      !!(s.match(/^-?\d+(?:\.\d+)?,-?\d+(?:\.\d+)?$/) ||       # Without parens
+      s.match(/^\(-?\d+(?:\.\d+)?,-?\d+(?:\.\d+)?\)$/))      # With parens
+    end
 
     # Returns a nil if str is blank, otherwise returns the original.
     def self.nil_if_blank (str)
